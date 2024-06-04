@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DevGabriel.dto.CategoryDTO;
 import com.DevGabriel.projeto.Services.CategoryService;
-import com.DevGabriel.projeto.entities.Category;
 
 @RestController
 public class CategoryResource {
@@ -18,9 +19,17 @@ public class CategoryResource {
 
     
     @GetMapping("/categories")
-    public ResponseEntity<List<Category>> findAll(){
-        List<Category> list = service.findAll();
+    public ResponseEntity<List<CategoryDTO>> findAll(){
+        List<CategoryDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
+
+    @GetMapping("/categories/{id}")
+    public ResponseEntity<CategoryDTO> findById(@PathVariable long id){
+        CategoryDTO dto = service.findById(id);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    
     
 }
