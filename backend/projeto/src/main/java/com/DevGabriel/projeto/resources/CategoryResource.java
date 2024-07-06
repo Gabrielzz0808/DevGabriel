@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.DevGabriel.dto.CategoryDTO;
+import com.DevGabriel.projeto.dto.CategoryDTO;
 import com.DevGabriel.projeto.Services.CategoryService;
 
 @RestController
@@ -25,7 +25,7 @@ public class CategoryResource {
     }
 
     @GetMapping("/categories/{id}")
-    public ResponseEntity<CategoryDTO> findById(@PathVariable long id){
+    public ResponseEntity<CategoryDTO> findById(@PathVariable Long id){
         CategoryDTO dto = service.findById(id);
         return ResponseEntity.ok().body(dto);
     }

@@ -1,4 +1,4 @@
-package com.DevGabriel.dto;
+package com.DevGabriel.projeto.dto;
 
 import java.io.Serializable;
 
